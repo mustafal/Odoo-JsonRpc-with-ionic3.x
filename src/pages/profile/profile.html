@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="profile-background">
+
+    <ion-img src="data:image/*;base64,{{imageSrc}}" class="round-image" style="
+      height: 150px !important;
+      width: 150px !important;
+      margin-top: 12%;
+      background: none !important;
+      background-color :none !important;" (click)="presentActionSheet()"></ion-img>
+    <h1 style="color: #fff">{{name}}</h1>
+    <h6 style="color: #fff">{{email}}</h6>
+
+  </div>
+
+  <div>
+
+    <ion-row *ngFor="let item of data">
+      <ion-grid>
+        <ion-item>
+          <ion-row>
+            <ion-col class="spec">Mobile</ion-col>
+            <ion-col>{{item.mobile}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col class="spec">Phone</ion-col>
+            <ion-col>{{item.phone}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col class="spec">Title</ion-col>
+            <ion-col>{{item.title}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col class="spec">Address</ion-col>
+            <ion-col>{{item.street}} {{item.street2}} {{item.city}}</ion-col>
+            <ion-col>{{item.state_id}} {{item.country_id}} {{item.zip}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col class="spec">Website</ion-col>
+            <ion-col>{{item.website}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+      </ion-grid>
+    </ion-row>
+  </div>
+
+
+</ion-content>

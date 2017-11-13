@@ -1,0 +1,18 @@
+page-view {
+    .bg-image {
+        background-color: rgb(29, 112, 167);
+        height: 300px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .round-image img{
+        background-position: center center;
+        background-size: contain;
+        border-radius: 50%;
+        border: 3px solid;
+        border-color: rgb(255, 255, 255);
+        height: 100%;
+        width: 100%;
+    }
+}

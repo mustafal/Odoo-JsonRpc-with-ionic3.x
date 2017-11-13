@@ -1,0 +1,51 @@
+page-login {
+    .background {
+        height: 100%;
+        width: 100%;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-image: url('../assets/imgs/mountain.jpg')
+    }
+
+    ion-card.card {
+        margin-top: 30%;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+    a, p,
+    ion-card-header.card-header {
+        color: #fff!important;
+    }
+     
+    .list > .item-block:first-child {
+        border: medium none;
+    }
+     
+    .item {
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border: medium none;
+     
+        .text-input, {
+            color: #fff;
+        }
+     
+        
+        input::-moz-placeholder{
+            color: #fff!important;
+        }
+        input:-moz-placeholder {
+            color: #fff!important;
+        }
+        *:-moz-placeholder{
+            color: #fff!important;
+        }
+        *:-ms-input-placeholder{
+            color: #fff!important;
+        }
+        *::-webkit-input-placeholder{
+            color: #fff!important;
+        }
+    }
+}
