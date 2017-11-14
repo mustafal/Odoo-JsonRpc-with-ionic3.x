@@ -1,26 +1,41 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a framework for Odoo Mobile With Ionic v 3.x
 
-## How to use this template
+## How to use this Framework
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+This is a sample ionic app with latest version that Connects your app to odoo v10 server.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+Before you run the app make sure you have nodejs installed.
 
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Install typecript
+```bash
+$ npm install -g typescript
+```
+Install Ionic CLI
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+$ npm install -g ionic
 ```
-
-Then, to run it, cd into `myBlank` and run:
-
+Install Cordova
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+$ npm install -g cordova
+```
+Clone this repo
+```bash
+$ git clone https://github.com/mtfaroks/Odoo-JsonRpc-with-ionic3.x
+```
+cd into the githubionic folder run npm install
+```bash
+$ npm install
+```
+NOTE : This app doesn't work in your browser, Please run it in the real device.
+
+Add platforms to your project
+```bash
+$ ionic platform add android/ios
+```
+Run the app
+```bash
+$ ionic run android/ios
 ```
 
-Substitute ios for android if not on a Mac.
-
+If you want to see the logs of your app that is running on real device you need to write this URL in your chrome browser. `chrome://inspect/devices#devices` but make sure that your device is connected to you PC and usb debugging is on in settigs.
