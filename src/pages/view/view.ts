@@ -16,7 +16,7 @@ export class ViewPage {
   private name: string
   private email: string
 
-  data: Array<{
+  public data: Array<{
     id: number,
     name: string,
     email: string,
@@ -57,8 +57,8 @@ export class ViewPage {
       let data = JSON.parse(res._body)["result"].records
       for (let record in data) {
         this.imageSrc = data[record].image
-        this.name = data[record].name
-        this.email = data[record].email
+        this.name = data[record].name == false ? "N/A" : data[record].name
+        this.email = data[record].email == false ? "N/A" : data[record].email
         this.data.push({
           id: data[record].id,
           name: data[record].name,

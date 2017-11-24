@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add Customer</ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="saveData()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Mobile</ion-label>
+      <ion-input type="tel" [(ngModel)]="mobile" name="mobile"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input type="tel" [(ngModel)]="phone" name="phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Website</ion-label>
+      <ion-input type="url" [(ngModel)]="website" name="website"></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

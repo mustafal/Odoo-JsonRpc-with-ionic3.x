@@ -1,9 +1,9 @@
+import { AddCustomerPage } from '../add-customer/add-customer';
 import { Utils } from '../../services/utils';
 import { ViewPage } from '../view/view';
 import { OdooJsonRpc } from '../../services/odoojsonrpc';
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { PosConfig } from '../../models/PosConfig';
 import { Network } from '@ionic-native/network';
 import { ProfilePage } from '../profile/profile';
 
@@ -14,6 +14,8 @@ import { ProfilePage } from '../profile/profile';
 })
 
 export class HomePage {
+
+  // splash = true;
 
   private partnerArray: Array<{
     id: number
@@ -41,13 +43,18 @@ export class HomePage {
     private alertCtrl: AlertController,
     private network: Network,
     private alert: AlertController,
-    private utils:Utils) {
+    private utils: Utils) { }
 
+  ionViewDidLoad() {
     this.display()
-
   }
 
+  // ionViewDidLoad() {
+  //   setTimeout(() => this.splash = false, 4000);
+  // }
+
   private display(): void {
+
     this.odooRpc.searchRead(this.partner,
       this.domain, this.fields, this.limit, this.offset,
       this.sort).then((partner: any) => {
@@ -56,17 +63,18 @@ export class HomePage {
   }
 
   private fillParners(partners: any): void {
+
     let json = JSON.parse(partners._body)["result"].records;
     for (let i in json) {
       this.partnerArray.push({
         id: json[i].id,
-        imageUrl: json[i].image_small == false ? "N/A":json[i].image_small ,
+        imageUrl: "data:image/*;base64,"+json[i].image_small,
         name: json[i].name == false ? "N/A" : json[i].name,
         email: json[i].email == false ? "N/A" : json[i].email
       })
       this.items.push({
         id: json[i].id,
-        imageUrl: json[i].image_small == false ? "N/A":json[i].image_small ,
+        imageUrl: "data:image/*;base64,"+json[i].image_small,
         name: json[i].name == false ? "N/A" : json[i].name,
         email: json[i].email == false ? "N/A" : json[i].email
       })
@@ -112,12 +120,16 @@ export class HomePage {
 
   private delete(idx: number) {
     this.odooRpc.deleteRecord(this.partner, this.partnerArray[idx].id)
-    this.utils.presentToast(this.partnerArray[idx].name +" Deleted Successfully",2000,true,"top")
+    this.utils.presentToast(this.partnerArray[idx].name + " Deleted Successfully", 2000, true, "top")
     this.partnerArray.splice(idx, 1)
   }
 
   viewProfile(): void {
     this.navCtrl.push(ProfilePage)
+  }
+
+  addCustomer(): void {
+    this.navCtrl.push(AddCustomerPage)
   }
 
 }
