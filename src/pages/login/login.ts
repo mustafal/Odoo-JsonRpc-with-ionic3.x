@@ -48,12 +48,11 @@ export class LoginPage {
       this.utils.dismissLoading()
       this.fillData(dbList)
     }).catch((err: any) => {
-      this.utils.presentAlert("Error", "You Entered a wrong Odoo URL",[{
-        text:"Ok"
+      this.utils.presentAlert("Error", "You Entered a wrong Odoo URL", [{
+        text: "Ok"
       }])
       this.utils.dismissLoading()
     });
-
   }
 
   public fillData(res: any) {
@@ -66,7 +65,7 @@ export class LoginPage {
   }
 
   private login() {
-    this.utils.presentLoading("Please wait",0,true)
+    this.utils.presentLoading("Please wait", 0, true)
     this.odooRpc.login(this.selectedDatabase, this.email, this.password)
       .then((res: any) => {
         let logiData: any = JSON.parse(res._body)["result"];
@@ -74,10 +73,9 @@ export class LoginPage {
         localStorage.setItem("token", JSON.stringify(logiData));
         this.navCtrl.setRoot(HomePage);
       }).catch((err) => {
-        this.utils.presentAlert("Error", "Username or password must be incorrect",[{
-          text:"Ok"
+        this.utils.presentAlert("Error", "Username or password must be incorrect", [{
+          text: "Ok"
         }])
-        
       });
   }
 }

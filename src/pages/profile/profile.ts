@@ -98,6 +98,7 @@ export class ProfilePage {
       text: "Logout",
       handler: () => {
         localStorage.clear()
+        this.odooRpc.destroy()
         this.navCtrl.setRoot(LoginPage);
       }
     }])

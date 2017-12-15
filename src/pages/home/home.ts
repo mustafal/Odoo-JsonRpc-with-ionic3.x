@@ -49,10 +49,6 @@ export class HomePage {
     this.display()
   }
 
-  // ionViewDidLoad() {
-  //   setTimeout(() => this.splash = false, 4000);
-  // }
-
   private display(): void {
 
     this.odooRpc.searchRead(this.partner,
@@ -64,20 +60,23 @@ export class HomePage {
 
   private fillParners(partners: any): void {
 
-    let json = JSON.parse(partners._body)["result"].records;
-    for (let i in json) {
-      this.partnerArray.push({
-        id: json[i].id,
-        imageUrl: "data:image/*;base64,"+json[i].image_small,
-        name: json[i].name == false ? "N/A" : json[i].name,
-        email: json[i].email == false ? "N/A" : json[i].email
-      })
-      this.items.push({
-        id: json[i].id,
-        imageUrl: "data:image/*;base64,"+json[i].image_small,
-        name: json[i].name == false ? "N/A" : json[i].name,
-        email: json[i].email == false ? "N/A" : json[i].email
-      })
+    let json = JSON.parse(partners._body);
+    if (!json.error) {
+      let query = json["result"].records
+      for (let i in query) {
+        this.partnerArray.push({
+          id: query[i].id,
+          imageUrl: "data:image/*;base64," + query[i].image_small,
+          name: query[i].name == false ? "N/A" : query[i].name,
+          email: query[i].email == false ? "N/A" : query[i].email
+        })
+        this.items.push({
+          id: json[i].id,
+          imageUrl: "data:image/*;base64," + query[i].image_small,
+          name: query[i].name == false ? "N/A" : query[i].name,
+          email: query[i].email == false ? "N/A" : query[i].email
+        })
+      }
     }
   }
 

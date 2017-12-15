@@ -2,7 +2,7 @@ This is a framework for Odoo Mobile With Ionic v 3.x
 
 ## How to use this Framework
 
-This is a sample ionic app with latest version that Connects your app to odoo v10 server.
+#This app is work with all odoo versions
 
 Before you run the app make sure you have nodejs installed.
 
