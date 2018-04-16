@@ -3,6 +3,7 @@ import 'rxjs/Rx';
 
 import { Headers, Http } from '@angular/http';
 import { Utils } from './utils';
+import { List } from 'ionic-angular/components/list/list';
 
 export class OdooJsonRpc {
 
@@ -237,9 +238,9 @@ export class OdooJsonRpc {
      * @param mArgs Array of fields which you want to read of the particular id
      */
 
-    public read(model: string, id: number, mArgs: any): Promise<any> {
+    public read(model: string, id: Array<number>, mArgs: Array<string>): Promise<any> {
         let args = [
-            id, [mArgs]
+            id, mArgs
         ]
         return this.call(model, 'read', args)
     }
