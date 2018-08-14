@@ -1,33 +1,33 @@
-.ios,.md{
-    page-view {
-        .bg-image {
-            background-color: rgb(29, 112, 167);
-            height: 400px;
-            width: 100%;
-            text-align: center;
-        }
-    
-        .round-image img{
-            background-position: center center;
-            background-size: cover;
-            border-radius: 50%;
-            border: 3px solid;
-            border-color: rgb(255, 255, 255);
-            height: 100%;
-            width: 100%;
-        }
-    
-        .main-cnt{
-            width: 100%;
-            position: relative;
-        }
-    
-        .spec{
-            font-family: 'Times New Roman', Times, serif;
-            color: #000000;
-            font-weight: bolder;
-            font-size: 15px;
-        }
-    }    
-}
+.ios,
+.md {
+  page-view {
+    .bg-image {
+      background-color: rgb(29, 112, 167);
+      height: 400px;
+      width: 100%;
+      text-align: center;
+    }
 
+    .round-image img {
+      background-position: center center;
+      background-size: cover;
+      border-radius: 50%;
+      border: 3px solid;
+      border-color: rgb(255, 255, 255);
+      height: 100%;
+      width: 100%;
+    }
+
+    .main-cnt {
+      width: 100%;
+      position: relative;
+    }
+
+    .spec {
+      font-family: "Times New Roman", Times, serif;
+      color: #000000;
+      font-weight: bolder;
+      font-size: 15px;
+    }
+  }
+}

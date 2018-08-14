@@ -1,11 +1,3 @@
-<!-- <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
-  <div class="flb">
-    <div class="Aligner-item Aligner-item--top"></div>
-    <img src="assets/imgs/serpent.png">
-    <div class="Aligner-item Aligner-item--bottom"></div>
-  </div>
-</div>
- -->
 <ion-header>
   <ion-navbar>
     <ion-title>
@@ -17,29 +9,9 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
 
 <ion-content>
-<!-- 
-  <ion-list no-lines>
-    <ion-item-sliding *ngFor="let item of partnerArray; let i = index;">
-      <ion-item (click)="view(i)">
-        <ion-avatar item-start>
-          <ion-img class="image" src="data:image/*;base64,{{item.imageUrl}}" style="height: 50px; width: 50px"></ion-img>
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.email}}</p>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="danger" (click)="delete(i)">
-          Delete
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list> -->
-
-
   <ion-list no-lines [virtualScroll]="partnerArray">
     <ion-item-sliding *virtualItem="let item; let i=index">
       <ion-item (click)="view(i)">

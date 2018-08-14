@@ -4,7 +4,9 @@ import 'rxjs/Rx';
 import { Headers, Http } from '@angular/http';
 import { Utils } from './utils';
 import { List } from 'ionic-angular/components/list/list';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class OdooJsonRpc {
 
     private jsonRpcID: number = 0;
