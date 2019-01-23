@@ -1,42 +1,89 @@
+<ion-header>
+  <ion-navbar> <ion-title> Login </ion-title> </ion-navbar>
+</ion-header>
+
 <ion-content class="background">
+  <div text-center>
+    <img
+      src="assets/imgs/odoo-logo.png"
+      height="150px"
+      width="180px"
+      alt="No Image"
+    />
+  </div>
+
   <ion-card>
     <ion-card-content>
-
-      <div class="spacer" style="height: 10px;"></div>
-      <ion-item>
-        <ion-label style="color: #fff">Select Protocol</ion-label>
-        <ion-select [(ngModel)]="selectedProtocol" style="color: #fff" name="dbNames">
-          <ion-option *ngFor="let item of listForProtocol" value="{{item.protocol}}">{{item.protocol}}</ion-option>
+      <ion-item class="border-box">
+        <ion-label>Select Protocol</ion-label>
+        <ion-select [(ngModel)]="selectedProtocol" name="dbNames">
+          <ion-option
+            *ngFor="let item of listForProtocol"
+            value="{{ item.protocol }}"
+            >{{ item.protocol }}</ion-option
+          >
         </ion-select>
       </ion-item>
       <div class="spacer" style="height: 10px;"></div>
-      <ion-item>
-        <ion-input [(ngModel)]="odooUrl" type="url" name="odooUrl" placeholder="Odoo Url"></ion-input>
+      <ion-item class="border-box">
+        <ion-label>Odoo Url</ion-label>
+        <ion-input [(ngModel)]="odooUrl" type="url" name="odooUrl"></ion-input>
       </ion-item>
+      <!-- <ion-item>
+        <ion-input [(ngModel)]="odooUrl" type="url" name="odooUrl" placeholder="Odoo Url"></ion-input>
+      </ion-item> -->
       <div class="spacer" style="height: 10px;"></div>
-      <button ion-button block round outline color="light" (click)="checkUrl()" text-center>
+      <button ion-button block round outline (click)="checkUrl()" text-center>
         Check Url
         <ion-icon name="md-arrow-round-forward"></ion-icon>
       </button>
       <div [hidden]="!perfectUrl">
         <form (ngSubmit)="login()" #registerForm="ngForm">
           <div class="spacer" style="height: 10px;"></div>
-          <ion-item>
-            <ion-input type="email" [(ngModel)]="email" name="email" placeholder="Email" required></ion-input>
-          </ion-item>
-          <div class="spacer" style="height: 5px;"></div>
-          <ion-item>
-            <ion-input type="password" [(ngModel)]="password" name="pass" placeholder="Password" required></ion-input>
+
+          <ion-item class="border-box">
+            <ion-label>Email</ion-label>
+            <ion-input
+              type="email"
+              [(ngModel)]="email"
+              name="email"
+              required
+            ></ion-input>
           </ion-item>
           <div class="spacer" style="height: 10px;"></div>
+
+          <ion-item class="border-box">
+            <ion-label>Password</ion-label>
+            <ion-input
+              type="password"
+              [(ngModel)]="password"
+              name="pass"
+              placeholder="Password"
+              required
+            ></ion-input>
+          </ion-item>
           <div class="spacer" style="height: 10px;"></div>
-          <ion-item>
-            <ion-label style="color: #fff">Select Database</ion-label>
-            <ion-select [(ngModel)]="selectedDatabase" name="selectDatabase" style="color: #fff" required>
-              <ion-option *ngFor="let item of dbList" value="{{item.dbName}}">{{item.dbName}}</ion-option>
+          <ion-item *ngIf="dbList.length > 1" class="border-box">
+            <ion-label>Select Database</ion-label>
+            <ion-select [(ngModel)]="selectedDatabase" name="selectDatabase">
+              <ion-option
+                *ngFor="let item of dbList"
+                value="{{ item.dbName }}"
+                >{{ item.dbName }}</ion-option
+              >
             </ion-select>
           </ion-item>
-          <button ion-button block round outline color="light" [disabled]="!registerForm.form.valid" (click)="signin()">Login</button>
+          <div class="spacer" style="height: 10px;"></div>
+          <button
+            ion-button
+            block
+            round
+            outline
+            [disabled]="!registerForm.form.valid"
+            (click)="signin()"
+          >
+            Login
+          </button>
         </form>
       </div>
     </ion-card-content>

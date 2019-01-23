@@ -1,12 +1,7 @@
 import { HomePage } from "../home/home";
 import { OdooJsonRpc } from "../../services/odoojsonrpc";
 import { Component } from "@angular/core";
-import {
-  AlertController,
-  LoadingController,
-  NavController,
-  NavParams
-} from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { Utils } from "../../services/utils";
 
 @Component({
@@ -76,6 +71,9 @@ export class LoginPage {
 
   private login() {
     this.utils.presentLoading("Please wait", 0, true);
+    if (this.dbList.length == 1) {
+      this.selectedDatabase = this.dbList[0].dbName;
+    }
     this.odooRpc
       .login(this.selectedDatabase, this.email, this.password)
       .then((res: any) => {

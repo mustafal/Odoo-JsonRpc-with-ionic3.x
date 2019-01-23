@@ -42,6 +42,7 @@ export class ViewPage {
   }
 
   private display(): void {
+    this.utils.presentLoading("Loading ...");
     let partner = "res.partner";
     let fields = [
       "name",
@@ -66,6 +67,7 @@ export class ViewPage {
     this.odooRpc
       .searchRead(partner, domain, fields, limit, offset, sort)
       .then((res: any) => {
+        this.utils.dismissLoading();
         let data = JSON.parse(res._body)["result"].records;
         for (let record in data) {
           this.imageSrc = data[record].image;

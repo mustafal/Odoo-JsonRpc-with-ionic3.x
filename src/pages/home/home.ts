@@ -42,9 +42,11 @@ export class HomePage {
   }
 
   private display(): void {
+    this.utils.presentLoading("Loading ...");
     this.odooRpc
       .searchRead(this.partner, [], [], 0, 0, "")
       .then((partner: any) => {
+        this.utils.dismissLoading();
         this.fillParners(partner);
       });
   }
