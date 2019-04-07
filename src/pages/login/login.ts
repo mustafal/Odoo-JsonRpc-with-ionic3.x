@@ -28,12 +28,14 @@ export class LoginPage {
     private odooRpc: OdooJsonRpc,
     private utils: Utils
   ) {
-    this.listForProtocol.push({
-      protocol: "http"
-    });
-    this.listForProtocol.push({
-      protocol: "https"
-    });
+    this.listForProtocol.push(
+      {
+        protocol: "http"
+      },
+      {
+        protocol: "https"
+      }
+    );
   }
 
   public checkUrl() {
@@ -78,21 +80,26 @@ export class LoginPage {
       .login(this.selectedDatabase, this.email, this.password)
       .then((res: any) => {
         let logiData: any = JSON.parse(res._body)["result"];
-        logiData.password = this.password;
-        localStorage.setItem("token", JSON.stringify(logiData));
-        this.navCtrl.setRoot(HomePage);
-      })
-      .catch(err => {
-        this.utils.dismissLoading();
-        this.utils.presentAlert(
-          "Error",
-          "Username or password must be incorrect",
-          [
-            {
-              text: "Ok"
-            }
-          ]
-        );
+        console.log("-----------res-----------" + JSON.stringify(logiData));
+        if (logiData.username == false) {
+          this.utils.dismissLoading();
+          this.utils.presentAlert(
+            "Error",
+            "Your username or password may be incorrect! Please enter valid username or password",
+            [
+              {
+                text: "Ok"
+              }
+            ]
+          );
+        } else {
+          this.utils.dismissLoading();
+          logiData.url = this.odooUrl;
+          logiData.password = this.password;
+          logiData.protocol = this.selectedProtocol;
+          localStorage.setItem("token", JSON.stringify(logiData));
+          this.navCtrl.setRoot(HomePage);
+        }
       });
   }
 }

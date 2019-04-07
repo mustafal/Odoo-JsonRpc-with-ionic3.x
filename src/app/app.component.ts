@@ -37,7 +37,7 @@ export class MyApp {
       let jsonData = JSON.parse(response);
       let username = jsonData["username"];
       let pass = jsonData["password"];
-      let url = jsonData["web.base.url"];
+      let url = jsonData["protocol"] +"://"+ jsonData["url"];
       let db = jsonData["db"];
 
       this.odooRpc.init({
