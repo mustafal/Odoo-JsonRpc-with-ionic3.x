@@ -31,7 +31,7 @@ NOTE : This app doesn't work in your browser, Please run it in the real device.
 
 Add platforms to your project
 ```bash
-$ ionic platform add android/ios
+$ ionic cordova platform add android/ios
 ```
 Run the app
 ```bash
